@@ -14,7 +14,7 @@ public class WeatherService {
     //Hit the API to ftech the weather at particular time
 
     private final String weatherApi="https://api.weatherapi.com/v1/current.json?q=latitude%2Clongitude&lang=en&key=APIKEY";
-    private final String apiKey = "b583b029d56d400f905190737252506";
+    private final String apiKey ="abcd";
     private  final RestTemplate restTemplate = new RestTemplate();
 
     public boolean isRaining(String lattitude, String longitude) {

@@ -11,11 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class WeatherCheckScheduler {
 
-    @Value("${weather.city.lattitude}")
-    private String latitude;
-
-    @Value("${weather.city.longitude}")
-    private String longitude;
+    @Value("${weather.city}")
+    private String city;
 
 //    @Autowired
     private final WeatherService weatherService;
@@ -36,7 +33,7 @@ public class WeatherCheckScheduler {
     @Scheduled(fixedRate = 1500000)
     public void ScheduleNotification(){
 
-        boolean isRaining = weatherService.isRaining(latitude,longitude);
+        boolean isRaining = weatherService.isRaining(city);
         if(isRaining){
             String songMsg = songPickerService.todaySong();
             if(!songMsg.startsWith("Error")){
